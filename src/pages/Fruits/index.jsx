@@ -19,12 +19,12 @@ const Fruits = () => {
   return (
     <div>Show all Fruits:
         <ul>
-        {fruits.map((fruit) => {
+        {fruits.map((fruits) => {
         
-          return (<li key={fruit.name}>
-            <p>{fruit.name}</p>
-            <p>{fruit.color}</p>
-            <p>{fruit.readyToEat}</p>
+          return (<li key={fruits.name}>
+            <p>{fruits.name}</p>
+            <p>{fruits.color}</p>
+            <p>{fruits.readyToEat}</p>
            </li>
           )
         })}

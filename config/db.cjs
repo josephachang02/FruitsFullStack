@@ -3,6 +3,15 @@
 
 const mongoose = require('mongoose');
 
-let connectionString =`mongodb+srv://josephachang02:${process.env.MONGO_PASS}@cluster0.s4trlob.mongodb.net/?retryWrites=true&w=majority`
+let connectionString =`mongodb+srv://josephachang02:${process.env.MONGO_PASS}@cluster0.s4trlob.mongodb.net/Food?retryWrites=true&w=majority`
+console.log(connectionString);
 
-mongoose.connect()
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+// console.log when connected 
+mongoose.connection.once('open', ()=> {
+    console.log('connected to DATABASE');
+  });
