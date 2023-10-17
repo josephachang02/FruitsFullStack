@@ -6,6 +6,12 @@ const morgan = require('morgan')
 const PORT = 3000;
 const app = express();
 
+// allows us to use process.env ( get variables from .env file)
+require('dotenv').config();
+
+
+require('./config/db.cjs');
+
 app.use(cors({
     origin: "*"
 }))
