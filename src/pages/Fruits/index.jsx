@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -9,28 +8,31 @@ const Fruits = () => {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "http://localhost:3000/fruits"
-        }).then((res)=> {
+            url: "server/fruits",
+
+        }).then((res) => {
             setFruits(res.data)
         })
 
     }, [])
 
-  return (
-    <div>Show all Fruits:
-        <ul>
-        {fruits.map((fruits) => {
-        
-          return (<li key={fruits.name}>
-            <p>{fruits.name}</p>
-            <p>{fruits.color}</p>
-            <p>{fruits.readyToEat}</p>
-           </li>
-          )
-        })}
-        </ul>
-    </div>
-  )
-}
-
-export default Fruits
+    return (
+        <div>
+          Show all fruits here:
+          <ul>
+            {fruits.map((fruit) => {
+              return (
+                <li key={JSON.stringify(fruit)}>
+                  <p>Name: {fruit.name}</p>
+                  <p>Color: {fruit.color}</p>
+                  <p>Ready to Eat: {fruit.readyToEat}</p>
+                  <p>Age: {fruit.age}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
+    
+    export default Fruits

@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path') 
 const cors = require('cors')
 const morgan = require('morgan')
-const PORT = 3000;
+const PORT = 3200;
 const app = express();
 
 
@@ -29,23 +29,23 @@ app.use(express.json()); // adds .body to the request
 // dont need any more since our database is importing the information from the db
 // const fruits = [];
 
-app.get('/fruits', (req,res)=> {
+// app.get('/fruits', (req,res)=> {
     // res.send(fruits)
-})
+// })
 
-app.post("/fruits",(req,res)=>{
+app.post("/fruits", async (req,res)=>{
     console.log(req.body);
     let fruit = req.body;
+    console.log(fruit)
     let responseFromDB = await Fruit.create(fruit);
     console.log(responseFromDB);
-    
-    res.send("Route is good!");
-    
-})
+    res.status(201).send("Route is good"); 
+});
+
 app.get("/", (req, res) => {
     res.send("here is your valuable data")
     
-})
+});
 
 
 app.listen(PORT, () => {

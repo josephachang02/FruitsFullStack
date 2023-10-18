@@ -1,5 +1,6 @@
 // connect mongoose to the db
 // later when we use mongoose somewhere else, it will already be connected
+/* eslint-disable no-undef */
 
 const mongoose = require('mongoose');
 

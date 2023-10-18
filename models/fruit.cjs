@@ -1,4 +1,5 @@
 // create schema (breakdown of what our data should look like)
+/* eslint-disable no-undef */
 const mongoose = require('mongoose');
 
 const fruitSchema = new mongoose.Schema(
@@ -6,6 +7,7 @@ const fruitSchema = new mongoose.Schema(
         name: String,
         color: String,
         readyToEat: Boolean,
+        age: Number,
     },
     {
         timestamps: true,
