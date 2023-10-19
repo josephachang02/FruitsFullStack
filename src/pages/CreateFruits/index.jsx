@@ -6,7 +6,8 @@ const CreateFruits = () => {
         name: "",
         color: "",
         readyToEat: false,
-        age: 0
+        age: 0,
+        isHealthy: false
     });
 
     const handleSubmit = (e) => {
@@ -59,6 +60,16 @@ const CreateFruits = () => {
               }          
             />
             <br />
+            Is Healthy:{" "}
+            <input
+              type="checkbox"
+              name="isHealthy"
+              value={fruitData.isHealthy}
+              onChange={(e) => setFruitData({ ...fruitData, isHealthy: !fruitData.isHealthy })
+              }          
+            />
+            <br />
+
             
             <button>Create Fruit</button>
           </form>
